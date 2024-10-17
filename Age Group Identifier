@@ -1,0 +1,36 @@
+print("I can tell you your age group. What's your age?")
+while True:
+    try: #use try and except block to ask user for input until they give a valid response
+        age = int(input()) #input has to be inside try and except block
+        if 0 <= age <= 1:
+            print("You're an infant. How are you able to use this?!")
+            #don't put breaks otherwise it will exit loop and won't reach retry function
+        if 2 <= age <= 4:
+            print("You're a toddler. How are you able to use this?!")
+        if 5 <= age <= 12:
+            print("You're a child.")
+        if 13 <= age <= 19:
+            print("You're a teen.")
+        if 20 <= age <= 39:
+            print("You're an adult.")
+        if 40 <= age <= 59:
+            print("You're a middle age adult.")
+        if 60 <= age <= 100:
+            print("You're a senior adult.")
+        if 101 <= age:
+            print("Are you immortal?!?!")
+    except ValueError:
+        print("Please enter a number.")
+        continue
+    print("Would you like to try again? [yes/no]") #this is the retry function
+    while True: #now this is a nested loop!
+        answer = input()
+        answer = answer.lower()
+        if answer == "yes":
+            print("I can tell you your age group. What's your age?") #print it again here
+            break #to break from nested loop and go back to original loop
+        if answer == "no":
+            exit() #to exit entire code
+        else:
+            print("Would you like to try again? Please say YES or NO.")
+            #to keep prompting user to enter a valid input (yes or no)
